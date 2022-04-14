@@ -17,8 +17,9 @@ public class MoveShip : MonoBehaviour
     void FixedUpdate()
     {
         float thrustInput = Input.GetAxis("Vertical");
+        if (thrustInput > 0)
+            rb.AddForce(transform.up * thrust * thrustInput);
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity);
-        rb.AddForce(transform.up * thrust * thrustInput);
 
         float rotateInput = -Input.GetAxis("Horizontal");
         if (Mathf.Abs(rb.angularVelocity) < maxAngularVelocity)
