@@ -4,7 +4,9 @@ public class CollisionExamples : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.name == "Face")
-            Destroy(this.gameObject);
+        {
+            // Destroy(this.gameObject);
+        }
         Debug.Log($"ENTER: {other.gameObject.name}");
     }
     private void OnCollisionStay2D(Collision2D other) {
