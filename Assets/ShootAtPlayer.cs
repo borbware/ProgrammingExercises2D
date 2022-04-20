@@ -20,7 +20,13 @@ public class ShootAtPlayer : MonoBehaviour
         Debug.Log(distanceVector.normalized.x);
         if (timer > 0.2f)
         {
-            GameObject newLuoti = Instantiate(luoti, shootEmpty.transform);
+            GameObject newLuoti = Instantiate(
+                luoti, 
+                shootEmpty.transform.position,
+                Quaternion.FromToRotation(
+                    shootEmpty.transform.position,
+                    player.transform.position
+                ));
             Destroy(newLuoti,10);
             MoveLuoti moveLuoti = newLuoti.GetComponent<MoveLuoti>();
             moveLuoti.velocity = distanceVector.normalized * 4.0f;
