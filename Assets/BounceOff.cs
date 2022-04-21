@@ -23,9 +23,4 @@ public class BounceOff : MonoBehaviour
             // ManageScore.instance.AddToScore(10); 
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

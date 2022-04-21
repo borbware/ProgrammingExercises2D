@@ -3,8 +3,9 @@ using UnityEngine;
 public class ManageScore : MonoBehaviour
 {
     public static ManageScore instance;
-    [SerializeField] int score = 0;
+    public int score = 0;
     [SerializeField] UI _ui;
+    int levelPhase = 0;
     void Start()
     {
         if (instance != null) // to be sure there is only one ManageScore
@@ -18,9 +19,12 @@ public class ManageScore : MonoBehaviour
         _ui.setScore(score);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (score % 20 == 0 && score > 0 && levelPhase != score)
+        {
+            levelPhase = score;
+            Debug.Log(score);
+        }
     }
 }
